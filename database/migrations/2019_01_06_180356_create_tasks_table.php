@@ -17,7 +17,8 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('email');
             $table->string('date');
-            $table->string('time');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->string('project');
             $table->text('task');
             $table->timestamps();

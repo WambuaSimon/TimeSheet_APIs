@@ -40,7 +40,8 @@ class TasksController extends Controller
         $validator = Validator::make($input,[
         'email'=>'required',
         'date'=>'required',
-        'time'=>'required',
+        'start_time'=>'required',
+        'end_time'=>'required',
         'project'=>'required',
         'task'=>'required'
         ]);

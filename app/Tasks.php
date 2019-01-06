@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tasks extends Model
 {
     protected $fillable = [
-'email','date','time','project','task'
+    'email','date','start_time','end_time','project','task'
     ];
 }
