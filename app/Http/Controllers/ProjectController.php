@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class ProjectsController extends Controller
+use App\Project;
+use Validator;
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        $project = Project::all();
+        return $this->sendResponse($project->toArray(), 'Project retrieved successfully.');
+   
     }
 
     /**
@@ -34,7 +37,24 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+
+        $validator = Validator::make($input, [
+            'name' => 'required'
+           
+        ]);
+
+
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());       
+        }
+
+
+        $project = Project::create($input);
+
+
+        return $this->sendResponse($project->toArray(), 'Project created successfully.');
     }
 
     /**
@@ -45,7 +65,16 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::find($id);
+
+
+        if (is_null($project)) {
+            return $this->sendError('Project not found.');
+        }
+
+
+        return $this->sendResponse($project->toArray(), 'Project retrieved successfully.');
+ 
     }
 
     /**

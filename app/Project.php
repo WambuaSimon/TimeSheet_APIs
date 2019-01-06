@@ -2,9 +2,10 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class Projects extends Model
+class Project extends Model
 {
     protected $fillable = [
             'name'
