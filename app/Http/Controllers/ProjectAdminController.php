@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tasks;
-use Validator;
-class TasksController extends Controller
+use App\Project;
+class ProjectAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,9 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::all();
-        return $this->sendResponse($tasks->toArray(), 'Tasks Retrived Successfully');
-        
+        return view ('projects',[
+            'projects' => Project::all()
+        ]);
     }
 
     /**
@@ -37,22 +36,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input,[
-        'email'=>'required',
-        'date'=>'required',
-        'start_time'=>'required',
-        'end_time'=>'required',
-        'project'=>'required',
-        'task'=>'required'
-        ]);
-
-    if($validator->fails()){
-        return $this->sendError('Validation Error', $validator->errors());
-    }
-$tasks = Tasks::create($input);
-return $this->sendResponse($tasks->toArray(), 'Product Created Successfully');
-
+        //
     }
 
     /**
@@ -63,11 +47,7 @@ return $this->sendResponse($tasks->toArray(), 'Product Created Successfully');
      */
     public function show($id)
     {
-        $tasks = Tasks::find($id);
-        if(is_null($tasks)){
-            return $this->sendError('Task not found');
-        }
-        return $this->sendResponse($tasks->toArray(), 'Task Retrieved Successfully');
+        //
     }
 
     /**
@@ -101,6 +81,9 @@ return $this->sendResponse($tasks->toArray(), 'Product Created Successfully');
      */
     public function destroy($id)
     {
-        //
+        $projects = Project::find($id);
+        $projects->delete();
+        return redirect()->route('home')
+        ->with('success','Project has been deleted');
     }
 }
