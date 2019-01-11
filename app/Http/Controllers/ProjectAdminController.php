@@ -36,7 +36,17 @@ class ProjectAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+'project_name'=>'required'
+        ]);
+
+        $projects = new Project([
+'name'=> $request->get('project_name')
+        ]);
+
+        $projects->save();
+        return redirect()->route('home')
+        ->with('success','Project has been Added Successfully');
     }
 
     /**

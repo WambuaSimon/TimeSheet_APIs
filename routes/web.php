@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
- Route::resource('home', 'TasksAdminController');
+//Route::resource('home', 'TasksAdminController');
 Route::resource('users', 'UserAdminController');
 Route::resource('projects', 'ProjectAdminController');
+Route::get('create_project',function(){
+    return view('create_project');
+});

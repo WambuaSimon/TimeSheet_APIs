@@ -46,7 +46,7 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                     
-                                        <td><a href="#" class="btn btn-primary">Add</a></td>
+                                        {{-- <td><a href="#" class="btn btn-primary">Add</a></td> --}}
                                         <td>
                                                 <form action="{{ route('users.destroy', $user->id)}}" method="post">
                                                         @csrf @method('DELETE')
