@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tasks;
 use Validator;
+use 
 class TasksController extends Controller
 {
     /**
@@ -38,20 +39,23 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $validator = Validator::make($input,[
-        'email'=>'required',
-        'date'=>'required',
-        'start_time'=>'required',
-        'end_time'=>'required',
-        'project'=>'required',
-        'task'=>'required'
-        ]);
+        $validator = Validator::make($input);
+        if($validator->fails()){
+            return $this->sendError('Validation Error', $validator->errors());
+        }
 
-    if($validator->fails()){
-        return $this->sendError('Validation Error', $validator->errors());
-    }
-$tasks = Tasks::create($input);
-return $this->sendResponse($tasks->toArray(), 'Product Created Successfully');
+        $task = new Tasks();
+        $task->user_id = Auth::user()->id;
+        $task->project_id = $request->get('project_id');
+        $task->date = $request->get('date');
+        $task->start_time = $request->get('start_time');
+        $task->end_time = $request->get('end_time');
+        $task->name = $request->get('name');
+        $task->save();
+
+   
+// $tasks = Tasks::create($input);
+return $this->sendResponse($tasks->toArray(), 'Task Created Successfully');
 
     }
 
