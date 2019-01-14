@@ -19,20 +19,20 @@ class TasksController extends Controller
     {
         // $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
         // $user = Auth::user()->id;
-        // //return new JsonResponse($tasks);
+        return new JsonResponse($tasks)->with('projects','users');
         // return JsonResponse::collection($user->with('projects')->paginate());
         $this->resource->load('projects');
         $this->resource->load('users');
 
-        return $this->resource->map(function ($item) {
-            return [
-                'name' => $item->name,
-                'start_time' => $item->start_time,
-                'end_time' =>$item->end_time,
-                'date' =>$item->date,
-                'project'=> new ProjectResource($item->projects)
-            ];
-        });
+        // return $this->resource->map(function ($item) {
+        //     return [
+        //         'name' => $item->name,
+        //         'start_time' => $item->start_time,
+        //         'end_time' =>$item->end_time,
+        //         'date' =>$item->date,
+        //         'project'=> new ProjectResource($item->projects)
+        //     ];
+        // });
         
     }
 
