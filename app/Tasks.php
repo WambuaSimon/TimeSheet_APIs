@@ -10,4 +10,8 @@ class Tasks extends Model
     protected $fillable = [
     'email','date','start_time','end_time','project','task'
     ];
+
+    public function users(){
+        
+    }
 }
