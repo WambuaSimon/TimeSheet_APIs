@@ -17,12 +17,12 @@ class TasksController extends Controller
      */
     public function index()
     {
-        // $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
+        $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
         // $user = Auth::user()->id;
-        return new JsonResponse($tasks)->with('projects','users');
+        return new JsonResponse($tasks);
         // return JsonResponse::collection($user->with('projects')->paginate());
-        $this->resource->load('projects');
-        $this->resource->load('users');
+        // $this->resource->load('projects');
+        // $this->resource->load('users');
 
         // return $this->resource->map(function ($item) {
         //     return [
