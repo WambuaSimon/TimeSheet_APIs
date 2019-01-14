@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tasks;
 use Validator;
+use Illuminate\Http\JsonResponse;
 use Auth;
 class TasksController extends Controller
 {
