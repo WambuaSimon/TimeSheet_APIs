@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home',[
-            'tasks' => Tasks::all()->simplePaginate(15);
+            'tasks' => Tasks::simplePaginate(15)->get();
         ]);
     }
 }
