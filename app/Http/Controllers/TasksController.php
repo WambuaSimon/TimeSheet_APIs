@@ -15,12 +15,12 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::all();
+        $tasks = Tasks::where('user_id',Auth()->id)->get();
         return $this->sendResponse($tasks->toArray(), 'Tasks Retrived Successfully');
         
     }
 
-    /**
+    /**hwr
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
