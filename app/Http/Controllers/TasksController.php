@@ -16,7 +16,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
+        $tasks = Tasks::where('user_id', '=', Auth::user()->id)->findorfail(1);
         return new JsonResponse($tasks);
         
     }
