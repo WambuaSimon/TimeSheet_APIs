@@ -53,12 +53,12 @@
                                         <td>{{$task->start_time}}</td>
                                         <td>{{$task->end_time}}</td>
                                     
-                                        <td>
+                                        {{-- <td>
                                             <form action="{{ route('tasks.destroy', $task->id)}}" method="post">
                                                 @csrf @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">Delete</button>
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>
