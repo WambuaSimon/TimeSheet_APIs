@@ -7,6 +7,7 @@ use App\Tasks;
 use Validator;
 use Illuminate\Http\JsonResponse;
 use Auth;
+use App\Http\Resources\ProjectResource;
 class TasksController extends Controller
 {
     /**
@@ -16,8 +17,22 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::where('user_id', '=', Auth::user()->id)->findorfail(1);
-        return new JsonResponse($tasks);
+        // $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
+        // $user = Auth::user()->id;
+        // //return new JsonResponse($tasks);
+        // return JsonResponse::collection($user->with('projects')->paginate());
+        $this->resource->load('projects');
+        $this->resource->load('users');
+
+        return $this->resource->map(function ($item) {
+            return [
+                'name' => $item->name,
+                'start_time' => $item->start_time,
+                'end_time' =>$item->end_time,
+                'date' =>$item->date,
+                'project'=> new ProjectResource($item->projects)
+            ];
+        });
         
     }
 
