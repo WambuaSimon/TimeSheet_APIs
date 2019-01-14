@@ -12,9 +12,9 @@ class Tasks extends Model
     ];
 
     public function users(){
-        return $this->public function user()
-        {
+    
+        
             return $this->belongsTo('App\User', 'user_id');
-        }
+        
     }
 }
