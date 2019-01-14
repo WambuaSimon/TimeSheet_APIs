@@ -47,7 +47,7 @@
                                     <tr>
                                       
                                         <td>{{$task->users->name}}</td>
-                                        <td>{{$task->project}}</td>
+                                        <td>{{$task->projects->name}}</td>
                                         <td>{{$task->task}}</td>
                                         <td>{{$task->date}}</td>
                                         <td>{{$task->start_time}}</td>
