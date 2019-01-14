@@ -45,7 +45,7 @@
                                         <td>{{$project->name}}</td>
 
 
-                                        <td><a href="#" class="btn btn-primary">Add</a></td>
+                                    <td><a href="/create_project" class="btn btn-primary">Add</a></td>
                                         <td>
                                             <form action="{{ route('projects.destroy', $project->id)}}" method="post">
                                                 @csrf @method('DELETE')
