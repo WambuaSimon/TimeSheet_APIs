@@ -37,11 +37,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input);
-        if($validator->fails()){
-            return $this->sendError('Validation Error', $validator->errors());
-        }
+        // $input = $request->all();
+        // $validator = Validator::make($input);
+        // if($validator->fails()){
+        //     return $this->sendError('Validation Error', $validator->errors());
+        // }
 
         $task = new Tasks();
         $task->user_id = Auth::user()->id;
@@ -54,7 +54,7 @@ class TasksController extends Controller
 
    
 // $tasks = Tasks::create($input);
-return $this->sendResponse($tasks->toArray(), 'Task Created Successfully');
+return $this->sendResponse('Task Created Successfully');
 
     }
 
