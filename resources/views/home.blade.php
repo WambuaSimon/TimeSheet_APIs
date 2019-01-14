@@ -39,7 +39,7 @@
                                         <td>Start Time</td>
                                         <td>End Time</td>
                                         
-                                        <td colspan="2">Action</td>
+                                        {{-- <td colspan="2">Action</td> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
