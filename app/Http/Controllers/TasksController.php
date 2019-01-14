@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tasks;
 use Validator;
-use 
 class TasksController extends Controller
 {
     /**
