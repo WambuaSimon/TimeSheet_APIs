@@ -27,8 +27,8 @@ class TasksController extends Controller
 
 
         }
-        dd($tasks_data);
-        return new JsonResponse($tasks);
+        // dd($tasks_data);
+        return new JsonResponse($tasks_data);
         // return JsonResponse::collection($user->with('projects')->paginate());
         // $this->resource->load('projects');
         // $this->resource->load('users');
