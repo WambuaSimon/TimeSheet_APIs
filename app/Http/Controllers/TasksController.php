@@ -22,7 +22,7 @@ class TasksController extends Controller
         $tasks_data = [];
         foreach($tasks as $task){
             
-            $task['project_name'] = $task->project->name;
+            $task['project_name'] = $task->projects->name;
             array_push($tasks_data, $task);
 
 
