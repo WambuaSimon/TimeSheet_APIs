@@ -19,6 +19,15 @@ class TasksController extends Controller
     {
         $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
         // $user = Auth::user()->id;
+        $tasks_data = [];
+        foreach($tasks as $task){
+            
+            $task['project_name'] = $task->project->name;
+            array_push($tasks_data, $task);
+
+
+        }
+        dd($tasks_data);
         return new JsonResponse($tasks);
         // return JsonResponse::collection($user->with('projects')->paginate());
         // $this->resource->load('projects');
