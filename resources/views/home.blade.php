@@ -27,8 +27,8 @@
                             {{session()->get('success')}}
                         </div><br/> @endif
                     
-                        <table>
-                            <table class="table table-striped" >
+                        
+                            <table class="table table-striped"  id="example">
                                 <thead>
                                     <tr>
                                         
@@ -43,24 +43,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tasks as $task)
-                                    <tr>
-                                      
-                                        <td>{{$task->users->name}}</td>
-                                        <td>{{$task->projects->name}}</td>
-                                        <td>{{$task->name}}</td>
-                                        <td>{{$task->date}}</td>
-                                        <td>{{$task->start_time}}</td>
-                                        <td>{{$task->end_time}}</td>
-                                    
-                                        {{-- <td>
-                                            <form action="{{ route('tasks.destroy', $task->id)}}" method="post">
-                                                @csrf @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Delete</button>
-                                            </form>
-                                        </td> --}}
-                                    </tr>
-                                    @endforeach
+                                   @if ($tasks==null)
+                                       <tr><td>Nothing to show<</td></tr>
+                                   @else
+                                   @foreach ($tasks as $task)
+                                   <tr>
+                                     
+                                       <td>{{$task->users->name}}</td>
+                                       <td>{{$task->projects->name}}</td>
+                                       <td>{{$task->name}}</td>
+                                       <td>{{$task->date}}</td>
+                                       <td>{{$task->start_time}}</td>
+                                       <td>{{$task->end_time}}</td>
+                                   
+                                       {{-- <td>
+                                           <form action="{{ route('tasks.destroy', $task->id)}}" method="post">
+                                               @csrf @method('DELETE')
+                                               <button class="btn btn-danger" type="submit">Delete</button>
+                                           </form>
+                                       </td> --}}
+                                   </tr>
+                                   @endforeach
+                                   @endif
                                 </tbody>
                             </table>
                     </div>

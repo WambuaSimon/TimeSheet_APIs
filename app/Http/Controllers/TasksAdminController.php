@@ -14,10 +14,10 @@ class TasksAdminController extends Controller
     public function index()
     {
 
-        // $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
+      
         // dd(Tasks::all());
         return view ('home',[
-            'tasks' => Tasks::where('user_id', '=', Auth::user()->id)->get());
+            'tasks' => Tasks::all();
         ]);
         // return view('home');
     }

@@ -28,7 +28,8 @@
             <div class="form-group">
                 @csrf
                 <label for="name">Project Name: </label>
-                <input type="text" class="form-control" name="project_name" />
+                <input type="text" class="form-control" name="project_
+                name" />
 
             </div>
            
