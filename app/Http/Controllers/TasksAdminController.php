@@ -17,7 +17,7 @@ class TasksAdminController extends Controller
         // $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
         // dd(Tasks::all());
         return view ('home',[
-            'tasks' => Tasks::where('user_id', '=', Auth::user()->get());
+            'tasks' => Tasks::where('user_id', '=', Auth::user()->id)->get());
         ]);
         // return view('home');
     }
