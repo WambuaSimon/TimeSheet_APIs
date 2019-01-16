@@ -15,7 +15,7 @@ class UserAdminController extends Controller
     {
         return view ('users',[
             // 'users' => User::all()
-            'users'=> User::where('user_id','=', Auth::user()->id)->get();
+            'users'=> User::where('user_id', '=',  Auth::user()->id)->get()
         ]);
     }
 
