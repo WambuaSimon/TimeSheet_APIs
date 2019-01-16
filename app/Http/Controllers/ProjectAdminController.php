@@ -13,8 +13,10 @@ class ProjectAdminController extends Controller
      */
     public function index()
     {
+       
         return view ('projects',[
-            'projects' => Project::all()
+            // 'projects' => Project::all()
+            'projects'=> Project::where('user_id', '=', Auth::user()->id)->get();
         ]);
     }
 

@@ -14,7 +14,8 @@ class UserAdminController extends Controller
     public function index()
     {
         return view ('users',[
-            'users' => User::all()
+            // 'users' => User::all()
+            'users'=> User::where('user_id'=, Auth::user()->id)->get();
         ]);
     }
 
