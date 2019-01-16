@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
-Use Auth;
+// Use Auth;
 
 class ProjectAdminController extends Controller
 {

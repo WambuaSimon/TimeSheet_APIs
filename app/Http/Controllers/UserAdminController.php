@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-Use Auth;
+// Use Auth;
 class UserAdminController extends Controller
 {
     /**
