@@ -17,8 +17,8 @@ class ProjectAdminController extends Controller
     {
        
         return view ('projects',[
-            // 'projects' => Project::all()
-            'projects'=> Project::where('user_id', '=', Auth::user()->id)->get();
+            'projects' => Project::all()
+            // 'projects'=> Project::where('user_id', '=', Auth::user()->id)->get();
         ]);
     }
 
