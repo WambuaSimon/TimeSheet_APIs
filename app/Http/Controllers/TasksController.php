@@ -130,6 +130,8 @@ return $this->sendResponse('Task Created Successfully', 201);
      */
     public function destroy($id)
     {
-        //
+        $tasks = Tasks::find($id);
+        $tasks->delete();
+        return $this->sendResponse($tasks->toArray(), 'Task Deleted Successfully');
     }
 }
