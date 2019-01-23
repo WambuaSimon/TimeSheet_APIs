@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::where('user_id', '=', Auth::user()->id)->get();
+        $tasks = Tasks::all();
         // $tasks = Tasks::simplePaginate(15);
         return view('home',compact('tasks'));
     }
