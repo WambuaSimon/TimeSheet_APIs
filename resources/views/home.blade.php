@@ -67,6 +67,8 @@
                                    @endif
                                 </tbody>
                             </table>
+
+                            {{ $tasks->onEachSide(2)->links()}}
                     </div>
                 
                 </div>
