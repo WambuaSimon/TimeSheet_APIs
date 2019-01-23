@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container_fluid">
-    <div class="row justify-content-center">
-        <div class="container-fluid">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -68,7 +68,7 @@
                                 </tbody>
                             </table>
 
-                            {{ $tasks->onEachSide(2)->links()}}
+                            {{-- {{ $tasks->onEachSide(2)->links()}} --}}
                     </div>
                 
                 </div>

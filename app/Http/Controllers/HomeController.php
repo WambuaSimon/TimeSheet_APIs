@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tasks = Tasks::paginate(10);
+        $tasks = Tasks::all();
         // $tasks = Tasks::simplePaginate(15);
         return view('home',compact('tasks'));
     }
