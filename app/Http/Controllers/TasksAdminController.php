@@ -17,7 +17,7 @@ class TasksAdminController extends Controller
       
         // dd(Tasks::all());
         return view ('home',[
-            'tasks' => Tasks::all();
+            'tasks' => Tasks::all()->paginate(15);
         ]);
         // return view('home');
     }
